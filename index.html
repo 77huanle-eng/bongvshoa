@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#071c2a" />
+    <meta name="description" content="Một khu vườn hoa hồng 3D dành riêng cho em, nhân ngày 20 tháng 10." />
+    <title>Một khu vườn dành riêng cho em · 20/10</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="garden-canvas" aria-label="Khu vườn hoa hồng 3D tương tác"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <section class="intro" id="intro" aria-labelledby="intro-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> 20 · 10 <span class="eyebrow-line"></span></p>
+        <h1 id="intro-title">Anh có một món quà<br /><em>nhỏ dành riêng cho em…</em></h1>
+        <p class="intro-copy">Có những điều dịu dàng, chỉ muốn dành cho một người.</p>
+        <button class="button button-primary" id="open-gift" type="button">
+          <span>Mở món quà</span><span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="scroll-cue" aria-hidden="true"><span></span> Một khu vườn đang chờ em</div>
+      </section>
+
+      <header class="topbar" id="topbar" aria-label="Điều khiển khu vườn">
+        <a class="wordmark" href="#" aria-label="Khu vườn 20 tháng 10">V<span>·</span>H <small>GARDEN</small></a>
+        <div class="topbar-actions">
+          <button class="icon-button" id="music-toggle" type="button" aria-pressed="false" aria-label="Bật nhạc nền" title="Nhạc nền"><span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+          <button class="icon-button" id="replay-top" type="button" aria-label="Cho hoa nở lại" title="Cho hoa nở lại">↻</button>
+        </div>
+      </header>
+
+      <section class="love-message" id="love-message" aria-live="polite">
+        <p class="eyebrow"><span class="eyebrow-line"></span> GỬI EM, NGƯỜI ĐẶC BIỆT <span class="eyebrow-line"></span></p>
+        <h2>Thế giới có muôn vàn loài hoa,<br /><em>nhưng anh chỉ muốn ngắm em.</em></h2>
+        <p class="message-subtitle">Chúc em 20/10 dịu dàng như cánh hồng, rực rỡ theo cách riêng và luôn được yêu thương thật nhiều.</p>
+        <div class="message-actions">
+          <button class="button button-primary" id="open-letter" type="button"><span>Đọc lời thiệp</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          <button class="button button-quiet" id="replay-main" type="button">Cho hoa nở lại <span aria-hidden="true">↻</span></button>
+        </div>
+      </section>
+
+      <footer class="footer-note" id="footer-note"><span class="tiny-star">✳</span> Dành tặng em · 20 tháng 10 <span class="tiny-star">✳</span></footer>
+      <div class="gesture-hint" id="gesture-hint" aria-hidden="true">Chạm và kéo để ngắm khu vườn</div>
+      <div class="webgl-fallback" id="webgl-fallback" hidden>
+        <div class="fallback-bloom" aria-hidden="true">✿</div>
+        <h2>Một món quà nhỏ dành cho em</h2>
+        <p>Trình duyệt hiện không hỗ trợ WebGL. Em vẫn có thể mở lời chúc và đọc thiệp ở đây.</p>
+      </div>
+    </main>
+
+    <section class="letter-overlay" id="letter-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="letter-title">
+      <button class="letter-backdrop" id="letter-backdrop" type="button" aria-label="Đóng thiệp"></button>
+      <article class="letter-card" id="letter-card" tabindex="-1">
+        <button class="letter-close" id="close-letter" type="button" aria-label="Đóng thiệp">×</button>
+        <div class="letter-ornament" aria-hidden="true">❦</div>
+        <p class="letter-kicker">20 THÁNG 10 · GỬI EM</p>
+        <h2 id="letter-title">Gửi cô gái<br /><em>anh thương,</em></h2>
+        <div class="letter-body" id="letter-body">
+          <p>Chúc em một ngày 20/10 thật xinh đẹp, bình yên và ngập tràn những điều khiến em mỉm cười.</p>
+          <p>Mong em luôn đủ dịu dàng với chính mình, đủ can đảm để theo đuổi những điều mình yêu, và luôn nhớ rằng em xứng đáng với những yêu thương chân thành nhất.</p>
+          <p>Cảm ơn em vì đã xuất hiện, làm những ngày bình thường trở nên đặc biệt. Nếu có thể gửi em cả một vườn hoa, anh vẫn muốn gửi thêm một điều nữa — đó là sự quan tâm của anh, mỗi ngày.</p>
+        </div>
+        <p class="letter-signoff">Thương em thật nhiều <span aria-hidden="true">♡</span></p>
+        <div class="letter-bottom-mark" aria-hidden="true">✳ &nbsp; ✳ &nbsp; ✳</div>
+      </article>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
